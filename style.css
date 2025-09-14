@@ -1,0 +1,550 @@
+:root {
+  --main-color: #004d61; /* بترولي */
+  --section-bg-start: #e0f7fa; /* سماوي فاتح للتدريج */
+  --section-bg-end: #b2ebf2; /* سماوي أغمق للتدريج */
+  --hover-color: #ff9800; /* لون عند الوقوف */
+  --text-color: #333;
+  --light-gray: #f5f5f5;
+}
+
+/* ===== Global Reset & Box Sizing (The Fix) ===== */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding-top: 70px; /* Add padding to body to avoid overlap with fixed navbar */
+  background: var(--main-color); /* خلفية الصفحة بترولية */
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+/* ===== NAVBAR ===== */
+nav {
+  background: var(--main-color);
+  padding: 1rem 3.5cm; /* تم تغيير الهوامش إلى 3.5 سم */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between; /* To push CV to left and other links to center/right */
+  align-items: center;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Shadow for 3D effect */
+}
+nav .nav-links { /* New container for main links */
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+nav .nav-item { /* Style for individual nav items */
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Removed color transition */
+  padding: 0.5rem 0.8rem; /* Added padding for better hover area */
+  border-radius: 5px; /* Slightly rounded corners */
+  display: block; /* Make the whole area clickable and affectable */
+}
+nav .nav-item:hover {
+  color: white; /* Keep original color */
+  transform: translateY(-3px); /* Lift for 3D effect */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* Stronger shadow on hover */
+}
+
+/* Specific style for the CV button in the nav */
+nav .cv-button {
+  background-color: var(--main-color); /* Petrol color for CV button */
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  margin-left: auto; /* Pushes it to the right */
+  border: 1px solid white; /* Add a white border */
+}
+nav .cv-button:hover {
+  background-color: #00607d; /* Slightly lighter petrol on hover */
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* ===== SECTION STYLE ===== */
+section {
+  background: linear-gradient(135deg, var(--section-bg-start) 0%, var(--section-bg-end) 100%); /* Gradient background */
+  margin: 1.5rem 3.5cm; /* تم تغيير الهوامش إلى 3.5 سم */
+  padding: 2.5rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Softer, more modern shadow */
+}
+
+/* ===== HERO ===== */
+.hero {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2.5rem;
+  background: linear-gradient(135deg, var(--section-bg-start) 0%, var(--section-bg-end) 100%); /* Gradient background */
+  color: var(--text-color); /* Changed to darker text for readability on light gradient */
+  border-radius: 10px;
+  margin-top: 2rem;
+}
+.hero-content {
+  max-width: 800px;
+}
+.hero h1 {
+  color: var(--main-color); /* Changed to petrol for contrast */
+  margin-top: 0;
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.hero h2 {
+  color: white; /* Changed to white as requested */
+  font-size: 1.8rem;
+  font-weight: 300;
+  margin-bottom: 2rem;
+}
+.profile-picture {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid var(--main-color); /* Petrol border */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  margin-bottom: 1.5rem;
+}
+.hero-buttons a {
+  display: inline-block;
+  margin: 0.7rem;
+  padding: 1rem 2rem;
+  background: var(--hover-color); /* Orange for buttons */
+  color: white;
+  text-decoration: none;
+  border-radius: 30px; /* More rounded */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+.hero-buttons a:hover {
+  background: #ffc107; /* Lighter orange on hover */
+  transform: translateY(-5px); /* Subtle lift */
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3); /* Add shadow for depth */
+}
+
+/* ===== TITLES + EFFECT (Modified for 3D box) ===== */
+section h2 { /* Targeting h2 within sections */
+  background: var(--main-color); /* Petrol background */
+  color: white; /* White text */
+  text-align: center;
+  margin: 0 auto 3rem auto; /* Center the block and add bottom margin */
+  padding: 1rem 2rem; /* Padding inside the box */
+  border-radius: 8px; /* Slightly rounded corners */
+  max-width: fit-content; /* Make the background fit the text width */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Removed background transition */
+  font-size: 2.2rem;
+  font-weight: 700;
+}
+section h2:hover {
+  background: var(--main-color); /* Keep original background color */
+  color: white; /* Keep text white */
+  transform: translateY(-5px); /* Lift for 3D effect */
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3); /* Prominent shadow on hover */
+}
+
+/* Ensure h1, h3 still have their transitions if needed, though they don't have the box */
+h1, h3 {
+  transition: all 0.3s ease-in-out;
+  color: var(--main-color);
+}
+h3 {
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+}
+h1:hover, h3:hover {
+  color: var(--hover-color);
+  transform: scale(1.02);
+}
+
+/* ===== ABOUT SECTION ===== */
+.about p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  text-align: justify;
+  max-width: 900px;
+  margin: 0 auto;
+  color: var(--text-color); /* Ensure text is readable */
+}
+
+/* ===== SERVICES CARDS ===== */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+.card {
+  background: white; /* Cards now white inside the light blue section */
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+  border-bottom: 5px solid var(--main-color); /* Bottom border */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Removed background & color transition */
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--main-color);
+}
+.card:hover {
+  transform: translateY(-8px); /* Lift the card more */
+  box-shadow: 0 12px 20px rgba(0,0,0,0.2); /* More prominent shadow for cards */
+  background: white; /* Keep original background color */
+  color: var(--main-color); /* Keep original text color */
+}
+
+/* ===== PROJECTS ===== */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+.project-card {
+  background: white; /* Project cards now white inside the light blue section */
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden; /* Ensure image corners are rounded */
+}
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.2);
+}
+.project-card img {
+  width: 100%;
+  height: 200px; /* Fixed height for consistency */
+  object-fit: cover; /* Cover the area, cropping if necessary */
+  border-bottom: 3px solid var(--main-color);
+}
+.project-card-content {
+  padding: 1.5rem;
+  text-align: center;
+}
+.project-card h3 {
+  color: var(--main-color);
+  margin-top: 0.5rem;
+  margin-bottom: 0.8rem;
+}
+.project-card p {
+  color: #555;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+.project-card a {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background: var(--main-color);
+  color: white;
+  text-decoration: none;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+.project-card a:hover {
+  background: var(--hover-color);
+  transform: scale(1.05);
+}
+.show-more-button {
+  display: block;
+  width: fit-content;
+  margin: 2.5rem auto 0 auto;
+  padding: 1rem 2.5rem;
+  background: var(--hover-color);
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+.show-more-button:hover {
+  background: #ffc107;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+/* ===== EXPERIENCE SECTION ===== */
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.experience-card {
+  background-color: #f8f8f8; /* Light gray background for experience cards */
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  /* border-left: 5px solid var(--main-color); */ /* REMOVED THIS LINE */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.experience-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.experience-card h3 {
+  color: var(--main-color);
+  font-size: 1.4rem;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.experience-card p {
+  margin-bottom: 0.3rem;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.experience-card .duration {
+  font-style: italic;
+  color: #777;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.experience-card ul {
+  list-style: disc;
+  padding-left: 1.2rem;
+  margin-top: 1rem;
+  color: #444;
+  font-size: 0.9rem;
+}
+
+.experience-card ul li {
+  margin-bottom: 0.5rem;
+}
+
+.experience-card .location {
+  color: var(--hover-color); /* Orange for location */
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+/* Adjust the "My Experience" title to match other section titles */
+#experience h2 {
+  background: var(--main-color); /* Petrol background */
+  color: white; /* White text */
+  text-align: center;
+  margin: 0 auto 3rem auto;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  max-width: fit-content;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-size: 2.2rem;
+  font-weight: 700;
+}
+#experience h2:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* ===== SKILLS ===== */
+#skills ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.2rem;
+  padding: 0;
+}
+#skills ul li {
+  background: var(--main-color);
+  color: white;
+  padding: 0.8rem 1.8rem;
+  border-radius: 25px;
+  font-weight: 500;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+#skills ul li:hover {
+  background: var(--hover-color);
+  transform: translateY(-3px);
+}
+
+/* ===== CONTACT ===== */
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 650px; /* Increased width */
+  margin: 0 auto;
+  gap: 1.2rem;
+}
+form input, form textarea {
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+form input:focus, form textarea:focus {
+  outline: none;
+  border-color: var(--main-color);
+  box-shadow: 0 0 0 3px rgba(0, 77, 97, 0.2);
+}
+form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+form button {
+  border: none;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  border-radius: 30px;
+  background: var(--main-color);
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+ form button:hover {
+    background: var(--hover-color); /* Change to orange */
+    transform: translateY(-3px); /* Subtle lift */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2); /* Add shadow */
+ }
+
+.contact-info {
+  margin-top: 2.5rem;
+  text-align: center; /* Center align for a cleaner look */
+  max-width: 650px; /* Match form width */
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 1.5rem;
+  border-top: 1px solid #eee;
+}
+.contact-info p, .contact-info div {
+  display: flex; /* Use flexbox for icons and text */
+  align-items: center;
+  justify-content: center; /* Center items within the flex container */
+  margin-bottom: 0.8rem;
+  font-size: 1.1rem;
+}
+.contact-info i {
+  color: var(--main-color);
+  margin-right: 10px;
+  font-size: 1.2rem;
+  width: 25px; /* Fixed width for icon */
+  text-align: center;
+}
+.contact-info a {
+  color: var(--main-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.contact-info a:hover {
+  color: var(--hover-color);
+}
+.whatsapp-link img {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+.whatsapp-link {
+    color: var(--main-color);
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: linear-gradient(90deg, #004d61 0%, #00798d 50%, #004d61 100%); /* Gradient background as requested */
+  text-align: center;
+  padding: 2rem;
+  margin: 2rem 3.5cm 0 3.5cm; /* تم تغيير الهوامش إلى 3.5 سم */
+  border-radius: 0; /* No border radius */
+  color: white;
+  box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
+  position: relative; /* Needed for the absolute positioning of the quote box */
+}
+footer a {
+  color: var(--hover-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+footer a:hover {
+  color: white;
+}
+
+.quote-box {
+  background: var(--main-color); /* Petrol color for the quote box */
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  max-width: fit-content;
+  margin: 0 auto 1.5rem auto; /* Center the box and add margin above copyright */
+  font-size: 1.3rem;
+  font-weight: 500;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.quote-box:hover {
+  transform: translateY(-5px); /* Lift for 3D effect */
+  box-shadow: 0 10px 20px rgba(0,0,0,0.4); /* Prominent shadow on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  body {
+    padding-top: 60px;
+  }
+  nav {
+    flex-direction: column; /* Stack items vertically */
+    padding: 1rem 1.5rem;
+  }
+  nav .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8rem;
+    width: 100%;
+    order: 2; /* Place links below the CV button */
+  }
+  nav .nav-item {
+    font-size: 1rem;
+    padding: 0.4rem 0.6rem;
+  }
+  nav .cv-button {
+    order: 1; /* Place CV button first */
+    margin: 0 0 10px 0; /* Center and add bottom margin */
+    width: auto; /* Auto width */
+  }
+  section {
+    margin: 1rem 1.5cm; /* Adjust for smaller screens */
+    padding: 1.5rem;
+  }
+  .hero {
+    padding: 3rem 1.5rem;
+  }
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  .hero h2 {
+    font-size: 1.4rem;
+  }
+  .profile-picture {
+    width: 150px;
+    height: 150px;
+  }
+  section h2, #experience h2 { /* Apply to experience title as well */
+    padding: 0.8rem 1.5rem;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+  }
+  .
